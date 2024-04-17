@@ -4,12 +4,11 @@
 #include "CarClass.h"
 
 int main() {
+    std::cout << "====================\nCAR DATABASE PROGRAM\n====================\n";
     int userInput = 0;
 
     while (userInput != 5) {
-        std::cout << "====================\nCAR DATABASE PROGRAM\n====================\n";
         std::cout << "What do you want to do?\n1. Add a car to the database\n2. Delete a car from the database\n3. Find a car in the database\n4. Print the database\n5. Exit the program\n====================\n";
-
         std::cin >> userInput;
 
         switch (userInput) {
@@ -21,7 +20,7 @@ int main() {
                 std::cout << "====================\nADDING CAR NUMBER " << i + 1 << "\n";
                 addCar();
             }
-            std::cout << "====================\n" << userInputAmountOfCarsToAdd << " Cars added!\n";
+            std::cout << "====================\n" << userInputAmountOfCarsToAdd << " Cars added!\n====================\n";
             break;
         case 2:
             break;

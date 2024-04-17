@@ -3,7 +3,7 @@
 #include "Functions.h"
 #include "CarClass.h"
 
-void addCar() {
+void addCar(int Cars[10]) {
     std::string brand;
     int yearMade;
     double mileage;
