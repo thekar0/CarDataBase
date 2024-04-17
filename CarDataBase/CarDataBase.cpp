@@ -4,7 +4,7 @@
 #include "CarClass.h"
 
 int main() {
-    //wielkitestczydziala? ? ? ?? 
+    //wielkitestczydziala
     int userInput = 0;
 
     while (userInput != 5) {
