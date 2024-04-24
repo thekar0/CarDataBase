@@ -1,0 +1,10 @@
+Model: E3
+Brand: BMW
+Year made: 2009
+Mileage: 123.4
+====================
+Model: IMPREZA
+Brand: SUBARU
+Year made: 2012
+Mileage: 945.5
+====================

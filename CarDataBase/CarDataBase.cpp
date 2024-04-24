@@ -2,19 +2,23 @@
 #include <vector>
 #include "Functions.h"
 #include "CarClass.h"
-
+#include <fstream>
+using namespace std;
 int main() {
     std::cout << "====================\nCAR DATABASE PROGRAM\n====================\n";
+
+    ofstream file;
 
     std::vector<CarClass> TemporaryData;
 
     int userInput = 0;
 
-    while (userInput != 5) {
-        std::cout << "What do you want to do?\n1. Add a car to the database\n2. Delete a car from the database\n3. Find a car in the database\n4. Print the database\n5. Exit the program\n====================\n";
+    while (userInput != 9) {
+        std::cout << "What do you want to do?\n1. Add a car to the temporary database\n2. Delete a car from the temporary database\n3. Find a car in the temporary database\n4. Print the  temporary database\n9. Exit the program\n====================\n";
         std::cin >> userInput;
 
         switch (userInput) {
+
         case 1:
             std::cout << "=================================\nHow many cars do you want to add?\n=================================\n";
             int userInputAmountOfCarsToAdd;
@@ -49,21 +53,35 @@ int main() {
             }
             std::cout << "====================\n" << userInputAmountOfCarsToAdd << " Cars added!\n====================\n";
             break;
+
         case 2:
             break;
+
         case 3:
             break;
         case 4:
-            std::cout << "==============================\nPrinting the Temporary Data...\n==============================\n";
-            for (const auto& car : TemporaryData) {
-                std::cout << "Model: " << car.model << "\nBrand: " << car.brand << "\nYear made: " << car.yearMade << "\nMileage: " << car.mileage << "\n====================\n";
+            file.open("carDataBase.txt");
+            if (!TemporaryData.empty()) {
+                std::cout << "==============================\nPrinting the Temporary Data...\n==============================\n";
+                for (const auto& car : TemporaryData) {
+                    std::cout << "Model: " << car.model << "\nBrand: " << car.brand << "\nYear made: " << car.yearMade << "\nMileage: " << car.mileage << "\n====================\n";
+                }
+                for (const auto& car : TemporaryData) {
+                    file << "Model: " << car.model << "\nBrand: " << car.brand << "\nYear made: " << car.yearMade << "\nMileage: " << car.mileage << "\n====================\n";
+                }
+                file.close();
+            }
+            else {
+                std::cout << "================================\nThe temporary database is empty!\n================================\n";
             }
             break;
-        case 5:
+
+        case 9:
             std::cout << "Exiting...\n";
             break;
+
         default:
-            std::cout << "Incorrect Value! Please try again\n";
+            std::cout << "=================================\nIncorrect Value! Please try again\n=================================\n";
             break;
         }
     }
