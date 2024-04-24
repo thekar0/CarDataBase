@@ -5,6 +5,9 @@
 
 int main() {
     std::cout << "====================\nCAR DATABASE PROGRAM\n====================\n";
+
+    std::vector<CarClass> TemporaryData;
+
     int userInput = 0;
 
     while (userInput != 5) {
@@ -13,12 +16,36 @@ int main() {
 
         switch (userInput) {
         case 1:
-            std::cout << "How many cars do you want to add?\n";
+            std::cout << "=================================\nHow many cars do you want to add?\n=================================\n";
             int userInputAmountOfCarsToAdd;
             std::cin >> userInputAmountOfCarsToAdd;
             for (int i = 0; i < userInputAmountOfCarsToAdd; i++) {
                 std::cout << "====================\nADDING CAR NUMBER " << i + 1 << "\n";
-                addCar();
+
+                std::string model;
+                std::string brand;
+                int yearMade;
+                double mileage;
+
+                std::cout << "Model: ";
+                std::cin >> model;
+
+                std::cout << "Brand: ";
+                std::cin >> brand;
+
+                std::cout << "Year made: ";
+                std::cin >> yearMade;
+
+                std::cout << "Mileage: ";
+                std::cin >> mileage;
+
+                CarClass car;
+                car.model = model;
+                car.brand = brand;
+                car.yearMade = yearMade;
+                car.mileage = mileage;
+
+                TemporaryData.push_back(car);
             }
             std::cout << "====================\n" << userInputAmountOfCarsToAdd << " Cars added!\n====================\n";
             break;
@@ -27,6 +54,10 @@ int main() {
         case 3:
             break;
         case 4:
+            std::cout << "==============================\nPrinting the Temporary Data...\n==============================\n";
+            for (const auto& car : TemporaryData) {
+                std::cout << "Model: " << car.model << "\nBrand: " << car.brand << "\nYear made: " << car.yearMade << "\nMileage: " << car.mileage << "\n====================\n";
+            }
             break;
         case 5:
             std::cout << "Exiting...\n";
